@@ -6,10 +6,12 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToOne,
+  OneToMany,
 } from 'typeorm';
 import { Gender } from './enums/gender.enum';
 import { Role } from './enums/role.enum';
 import { TypeDocument } from './type-document.entity';
+import { Appointment } from './appointment.entity';
 
 @Entity('users')
 export class User {
@@ -52,7 +54,12 @@ export class User {
   @UpdateDateColumn({ type: 'timestamp', name: 'updated_at' })
   updatedAt: Date;
 
-  @ManyToOne(() => TypeDocument, (typeDocument) => typeDocument.id)
+  @ManyToOne(() => TypeDocument, (typeDocument) => typeDocument.id, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'type_document_id' })
   typeDocument: TypeDocument;
+
+  @OneToMany(() => Appointment, (appointment) => appointment.user)
+  appointments: Appointment[];
 }
