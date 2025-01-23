@@ -3,6 +3,7 @@ import { Inventory } from './inventary.entity';
 import { BaseEntity } from 'src/common/helper/base.entity';
 import { TypeProduct } from './enums/type-product.enum';
 import { Condition } from './enums/condition.enum';
+import { Maintenance } from './maintenances.entity';
 
 @Entity('products')
 export class Product extends BaseEntity {
@@ -31,6 +32,9 @@ export class Product extends BaseEntity {
     nullable: false,
   })
   condition: Condition;
+
+  @OneToMany(() => Maintenance, (maintenance) => maintenance.product) 
+  maintenances: Maintenance[];
 
   @OneToMany(() => Inventory, (inventory) => inventory.product)
   inventories: Inventory[];
