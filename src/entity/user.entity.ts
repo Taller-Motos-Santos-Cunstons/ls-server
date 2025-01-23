@@ -12,6 +12,8 @@ import { Gender } from './enums/gender.enum';
 import { Role } from './enums/role.enum';
 import { TypeDocument } from './type-document.entity';
 import { Appointment } from './appointment.entity';
+import { Department } from './departments.entity';
+import { Municipality } from './municipalitie.entity';
 
 @Entity('users')
 export class User {
@@ -62,4 +64,16 @@ export class User {
 
   @OneToMany(() => Appointment, (appointment) => appointment.user)
   appointments: Appointment[];
+
+  @ManyToOne(() => Municipality, (municipality) => municipality.branches, {
+    nullable: false,
+  })
+  @JoinColumn({ name: 'municipality_id' })
+  municipality: Municipality;
+
+  @ManyToOne(() => Department, (department) => department.branches, {
+    nullable: false,
+  })
+  @JoinColumn({ name: 'department_id' })
+  department: Department;
 }
