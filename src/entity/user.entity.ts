@@ -11,9 +11,9 @@ import {
 import { Gender } from './enums/gender.enum';
 import { Role } from './enums/role.enum';
 import { TypeDocument } from './type-document.entity';
-import { Appointment } from './appointment.entity';
+import { Citation } from './citation.entity';
 import { Department } from './departments.entity';
-import { Municipality } from './municipalitie.entity';
+import { Municipality } from './municipalities.entity';
 
 @Entity('users')
 export class User {
@@ -21,10 +21,10 @@ export class User {
   documentNumber: string;
 
   @Column({ nullable: false })
-  name: string;
-
-  @Column({ type: 'text', nullable: false })
   firstName: string;
+
+  @Column({ nullable: false })
+  lastName: string;
 
   @Column({ unique: true, nullable: false })
   email: string;
@@ -62,8 +62,8 @@ export class User {
   @JoinColumn({ name: 'type_document_id' })
   typeDocument: TypeDocument;
 
-  @OneToMany(() => Appointment, (appointment) => appointment.user)
-  appointments: Appointment[];
+  @OneToMany(() => Citation, (citation) => citation.user)
+  citations: Citation[];
 
   @ManyToOne(() => Municipality, (municipality) => municipality.branches, {
     nullable: false,

@@ -1,6 +1,6 @@
 import { Entity, Column, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 import { BaseEntity } from 'src/common/helper/base.entity';
-import { Municipality } from './municipalitie.entity';
+import { Municipality } from './municipalities.entity';
 import { Department } from './departments.entity';
 import { Workshop } from './workshops.entity';
 

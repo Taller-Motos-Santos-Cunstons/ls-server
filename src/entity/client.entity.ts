@@ -6,11 +6,11 @@ export class Client {
   @PrimaryColumn()
   documentNumber: string;
 
-  @Column({ length: 500, nullable: false })
-  name: string;
-
-  @Column({ type: 'text', nullable: false })
+  @Column({ nullable: false })
   firstName: string;
+
+  @Column({ nullable: false })
+  lastName: string;
 
   @Column({ unique: true, nullable: false })
   email: string;

@@ -3,7 +3,7 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 import { TypeClindraje } from './type-clindraje.entity';
 import { MotorType } from './motor-type.entity';
 import { User } from './user.entity';
-import { Appointment } from './appointment.entity';
+import { Citation } from './citation.entity';
 
 @Entity('motor_cycles')
 export class MotorCycles extends BaseEntity {
@@ -39,6 +39,6 @@ export class MotorCycles extends BaseEntity {
   @JoinColumn({ name: 'motor_type_id' })
   motorType: MotorType;
 
-  @OneToMany(() => Appointment, (appointment) => appointment.motorcycle)
-  appointments: Appointment[];
+  @OneToMany(() => Citation, (citation) => citation.motorcycle)
+  citations: Citation[];
 }

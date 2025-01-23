@@ -4,18 +4,18 @@ import { BaseEntity } from 'src/common/helper/base.entity';
 import { MotorCycles } from './motorcycles.entity';
 
 @Entity('citation')
-export class Appointment extends BaseEntity {
+export class Citation extends BaseEntity {
   @Column({ type: 'timestamp', nullable: false })
-  appointmentDate: Date;
+  citationDate: Date;
 
   @Column({ type: 'text', nullable: false })
   reason: string;
 
-  @ManyToOne(() => User, (user) => user.appointments, { nullable: false })
+  @ManyToOne(() => User, (user) => user.citations, { nullable: false })
   @JoinColumn({ name: 'user_id' })
   user: User;
 
-  @ManyToOne(() => MotorCycles, (motorcycle) => motorcycle.appointments, {
+  @ManyToOne(() => MotorCycles, (motorcycle) => motorcycle.citations, {
     nullable: false,
   })
   @JoinColumn({ name: 'motorcycle_id' })
