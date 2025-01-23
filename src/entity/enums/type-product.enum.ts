@@ -1,0 +1,4 @@
+export enum TypeProduct {
+  REFABRICATED = 'REFABRICATED',
+  CONDITIONING = 'CONDITIONING',
+}

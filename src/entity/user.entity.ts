@@ -18,7 +18,7 @@ export class User {
   @PrimaryColumn()
   documentNumber: string;
 
-  @Column({ length: 500, nullable: false })
+  @Column({ nullable: false })
   name: string;
 
   @Column({ type: 'text', nullable: false })
@@ -40,7 +40,7 @@ export class User {
   @Column({
     type: 'enum',
     enum: Role,
-    default: Role.Client,
+    default: Role.CLIENT,
     nullable: false,
   })
   role: Role;
