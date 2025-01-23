@@ -8,15 +8,15 @@ export const databaseProviders = [
     useFactory: async (configService: ConfigService) => {
       const dataSource = new DataSource({
         type: 'mysql',
-        host: configService.get<string>('HOST'),
-        port: configService.get<number>('PORT', 3306),
-        username: configService.get<string>('USERNAME'),
-        password: configService.get<string>('PASSWORD'),
-        database: configService.get<string>('DATABASE'),
+        host: configService.get<string>('DB_HOST'),
+        port: configService.get<number>('DB_PORT', 3306),
+        username: configService.get<string>('DB_USERNAME'),
+        password: configService.get<string>('DB_PASSWORD'),
+        database: configService.get<string>('DB_DATABASE'),
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         synchronize: true,
+        logging: true,
       });
-      console.log(process.env.USERNAME);
 
       try {
         await dataSource.initialize();
