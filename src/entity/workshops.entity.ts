@@ -7,7 +7,7 @@ import { Branch } from './branches.entity';
 export class Workshop extends BaseEntity {
   @Column({ length: 100, nullable: false })
   name: string;
-    
+
   @ManyToOne(() => Department, (department) => department.workshops, {
     nullable: false,
   })

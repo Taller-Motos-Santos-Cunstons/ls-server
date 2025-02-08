@@ -1,7 +1,7 @@
 import { BaseEntity } from 'src/common/helper/base.entity';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
-import { TypeClindraje } from './type-clindraje.entity';
-import { MotorType } from './motor-type.entity';
+import { TypeofCylinder } from './typeof-cylidner.entity';
+import { MotorType } from './engine-type.entity';
 import { User } from './user.entity';
 import { Citation } from './citation.entity';
 
@@ -29,11 +29,11 @@ export class MotorCycles extends BaseEntity {
   @JoinColumn({ name: 'user_id' })
   user: User;
 
-  @ManyToOne(() => TypeClindraje, (typeClindraje) => typeClindraje.id, {
+  @ManyToOne(() => TypeofCylinder, (typeofCylinder) => typeofCylinder.id, {
     nullable: false,
   })
   @JoinColumn({ name: 'type_clindraje_id' })
-  typeClindraje: TypeClindraje;
+  typeofCylinder: TypeofCylinder;
 
   @ManyToOne(() => MotorType, (motorType) => motorType.id, { nullable: false })
   @JoinColumn({ name: 'motor_type_id' })
