@@ -70,3 +70,10 @@ Contiene las **interfaces de entrada** de la aplicación, en este caso usando **
 
 A continuación se detallan las tablas que componen el modelo de base de datos para la gestión del taller de motos:
 ![Untitled](https://github.com/user-attachments/assets/7f03d2f9-84af-43cb-8908-d4fa32e13906)
+
+## Colaboradores
+- [Kevin Villegas](https://github.com/kevin-villegas13)
+- [Julián Andrés Caracas](https://github.com/julianandrescaracas0623)
+- [Alejandro Galvis Giraldo](https://github.com/iburpy)
+- [gburpy](https://github.com/gburpy)
+
