@@ -1,22 +1,20 @@
-services:
-  db:
-    image: mysql:latest
-    container_name: mysql-latest
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: 123
-      MYSQL_USER: kevin
-      MYSQL_PASSWORD: 123
-      MYSQL_DATABASE: tallermotos-education-db
-    ports:
-      - "3306:3306"
+version: '3.8'
 
-  adminer:
-    image: adminer
-    container_name: adminer-hydra
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-container
     restart: always
-    ports:
-      - "0.0.0.0:8080:8080"
     environment:
-      ADMINER_DESIGN: "hydra"
-      ADMINER_SERVER: db
+      POSTGRES_USER: admin  # Usuario de la base de datos
+      POSTGRES_PASSWORD: admin123  # Contraseña (cámbiala en un entorno seguro)
+    ports:
+      - "5433:5432"  # Exponer el puerto 5432 en el contenedor como 5433 en la máquina host
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persistencia de datos
+
+volumes:
+  postgres_data:
+
+# 🔹 Para conectarte desde la terminal:
+# docker exec -it postgres-container psql -U admin -W
