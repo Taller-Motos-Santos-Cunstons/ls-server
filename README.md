@@ -70,5 +70,3 @@ Contiene las **interfaces de entrada** de la aplicación, en este caso usando **
 
 A continuación se detallan las tablas que componen el modelo de base de datos para la gestión del taller de motos:
 ![Untitled](https://github.com/user-attachments/assets/7f03d2f9-84af-43cb-8908-d4fa32e13906)
-
-Este es el esquema básico y la arquitectura que utilizaremos para desarrollar el sistema. Los **DTOs** de GraphQL se generarán en la capa de **`interfaces/graphql/`**, y los casos de uso se implementarán en la capa de **`application/use-cases/`**.
