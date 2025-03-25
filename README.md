@@ -72,8 +72,8 @@ A continuación se detallan las tablas que componen el modelo de base de datos p
 ![Untitled](https://github.com/user-attachments/assets/7f03d2f9-84af-43cb-8908-d4fa32e13906)
 
 ## Colaboradores
-- [Kevin Villegas](https://github.com/kevin-villegas13)
-- [Julián Andrés Caracas](https://github.com/julianandrescaracas0623)
-- [Alejandro Galvis Giraldo](https://github.com/iburpy)
-- [gburpy](https://github.com/gburpy)
+<a href="https://github.com/Taller-Motos-Santos-Cunstons/ls-server/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Taller-Motos-Santos-Cunstons/ls-server" />
+</a>
+<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
