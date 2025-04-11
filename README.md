@@ -15,56 +15,45 @@ Este proyecto tiene como objetivo la **gestión de talleres de motos**, donde se
 
 ## 📌 **Arquitectura del Proyecto**
 
-El proyecto sigue el patrón de **Clean Architecture** para garantizar una buena separación de responsabilidades y facilitar el mantenimiento y la escalabilidad. A continuación, se detalla la estructura del proyecto:
+El proyecto sigue una **arquitectura modular**, lo que permite mantener una organización clara del código y facilita la extensibilidad del sistema. Cada módulo se encarga de una parte específica del negocio.
 
-### 📦 **Estructura de Carpetas**
+### 📆 **Estructura de Carpetas**
 
 ```plaintext
-📦 src/
-│── 📂 application/        # Casos de uso (Aplicación)
-│   ├── 📂 dto/            # Data Transfer Objects (DTOs)
-│   ├── 📂 use-cases/      # Casos de uso (lógica de negocio)
-│
-│── 📂 domain/             # Dominio de negocio
-│   ├── 📂 entities/       # Entidades de dominio
-│   ├── 📂 repositories/   # Interfaces de repositorios
-│
-│── 📂 infrastructure/     # Infraestructura
-│   ├── 📂 config/         # Configuración de Prisma
-│   ├── 📂 persistence/    # Implementaciones de repositorios
-│
-│── 📂 interfaces/         # Interfaces de entrada (GraphQL)
-│   ├── 📂 graphql/        # Resolvers y esquemas
-│
-│── 📂 main.ts             # Punto de entrada de la aplicación
-│── 📂 app.module.ts       # Módulo raíz
-│── 📂 user.module.ts      # Módulo de usuario
+src/
+│── modules/
+│   ├── user/
+│   │   ├── user.module.ts
+│   │   ├── dto/
+│   │   ├── resolvers/
+│   │   ├── repositories/
+│   ├── client/
+│   ├── motorcycle/
+│   ├── citation/
+│   ├── workshop/
+│   ├── inventory/
+│── prisma/
+│   ├── schema.prisma
+│── main.ts
+│── app.module.ts
 ```
 
-### 📂 **Descripción de Carpetas**
+### 📚 **Descripción de Carpetas**
 
-#### 📂 `application/`
-Esta capa contiene los **casos de uso** y la lógica de negocio.
+#### 📂 `modules/`
 
-- **`dto/`**: Contiene los **Data Transfer Objects (DTOs)** que se usan para definir la forma de los datos que entran y salen de las capas de la aplicación.
-- **`use-cases/`**: Aquí se definen las acciones que puede realizar la aplicación, como crear un usuario, agendar una cita, realizar un mantenimiento, etc. Esta capa interactúa con los repositorios para obtener o modificar los datos.
+Cada módulo representa una funcionalidad específica del sistema y contiene:
 
-#### 📂 `domain/`
-Contiene la **lógica de dominio** que es independiente de cualquier tecnología externa.
+- **`module.ts`**: Archivo que define el módulo en NestJS.
+- **`service.ts`**: Contiene la lógica de negocio.
+- **`controller.ts`**: Define los endpoints REST para la interacción con el módulo.
+- **`dto/`**: Contiene los **Data Transfer Objects (DTOs)** que validan los datos de entrada.
+- **`resolvers/`**: Contiene los resolvers de **GraphQL**.
+- **`repositories/`**: Implementaciones de los repositorios usando **Prisma**.
 
-- **`entities/`**: Aquí se encuentran las entidades que representan las **tablas de la base de datos**, como `Cliente`, `Usuario`, `Mantenimiento`, etc.
-- **`repositories/`**: Define las interfaces que se utilizan para interactuar con las bases de datos, como obtener un cliente, guardar una cita, etc. Las implementaciones de estos repositorios estarán en la capa de infraestructura.
+#### 📂 `prisma/`
 
-#### 📂 `infrastructure/`
-Contiene los detalles de implementación, como el acceso a la base de datos.
-
-- **`config/`**: Configura Prisma y otras dependencias externas.
-- **`persistence/`**: Implementaciones de los repositorios utilizando Prisma para interactuar con la base de datos.
-
-#### 📂 `interfaces/`
-Contiene las **interfaces de entrada** de la aplicación, en este caso usando **GraphQL**.
-
-- **`graphql/`**: Define los **resolvers** y los **esquemas** de GraphQL que permiten la interacción entre el cliente y el servidor.
+Contiene la configuración y esquema de la base de datos gestionada con Prisma.
 
 ---
 
@@ -74,8 +63,8 @@ A continuación se detallan las tablas que componen el modelo de base de datos p
 ![Untitled](https://github.com/user-attachments/assets/7f03d2f9-84af-43cb-8908-d4fa32e13906)
 
 ## Colaboradores
+
 <a href="https://github.com/Taller-Motos-Santos-Cunstons/ls-server/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Taller-Motos-Santos-Cunstons/ls-server" />
 </a>
 <p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
-
